@@ -1,0 +1,22 @@
+# Python & Virtual Environments
+__pycache__/
+env/
+venv/
+.env
+*.ipynb
+
+# Node.js (Wajib biar gak berat!)
+node_modules/
+npm-debug.log
+
+# Version Control
+.git
+.gitignore
+
+# IDE Settings
+.vscode/
+.idea/
+
+# Build Output
+dist/
+build/
