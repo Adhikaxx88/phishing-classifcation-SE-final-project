@@ -1,0 +1,12 @@
+# Pastiin file model .h5 dianggap sebagai LFS (Barang Berat)
+models/*.h5 filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+
+# Kalau nanti lu punya model format lain, ini buat jaga-jaga
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.joblib filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+
+# Standar Git buat nanganin baris teks biar gak error di Linux/Windows
+* text=auto
