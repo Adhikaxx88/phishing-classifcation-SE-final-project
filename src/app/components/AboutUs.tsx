@@ -207,11 +207,6 @@ export function AboutUs() {
             {/* Collaborator cards */}
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <CollaboratorCard
-                name="Nehemiah Gantenk Abiez"
-                role="Nehemiah Wilhelmus Junaidi 2802409874"
-                description="Frontend Developer - Crafted the sleek UI and seamless user experience of our phishing detection system, making security accessible to all."
-              />
-              <CollaboratorCard
                 name="Adhikaxx88"
                 role="Adhika Gunawan 2802438205"
                 description="Backend Developer and AI Engineer - Developed the core deep learning model and backend infrastructure that powers our real-time phishing detection system, ensuring fast and accurate analysis of URLs."
