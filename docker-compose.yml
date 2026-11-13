@@ -1,0 +1,47 @@
+version: '3.8'
+
+volumes:
+  backend_data:
+
+services:
+  # FastAPI Backend
+  backend:
+    build: ./backend
+    ports:
+      - "8000:7860"
+    environment:
+      - CUDA_VISIBLE_DEVICES=-1
+      - TF_CPP_MIN_LOG_LEVEL=3
+      # Path ke kunci sakti Google lu
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/google-key.json
+    env_file:
+      - .env
+    volumes:
+      # 1. BIAR AUTO-UPDATE: Mount folder backend ke container
+      - ./backend:/app
+      # 2. GOOGLE KEY: service account JSON (Read-Only)
+      - ./google_key.json:/app/credentials/google-key.json:ro
+      # 3. PERSISTENCE: Simpan data biar nggak ilang
+      - backend_data:/app/data
+    restart: unless-stopped
+
+  # React Frontend (Vite dev server)
+  frontend:
+    build: .
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    environment:
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+      - VITE_API_URL=http://localhost:8000
+    volumes:
+      # BIAR AUTO-UPDATE: Mount source code frontend lu
+      - .:/app
+      # BIAR GAK ERROR: Jangan tindih node_modules container pake punya Windows
+      - /app/node_modules
+    depends_on:
+
+      - backend
+    restart: unless-stopped
