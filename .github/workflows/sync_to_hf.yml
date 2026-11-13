@@ -1,0 +1,24 @@
+name: Sync to Hugging Face Spaces
+on:
+  push:
+    branches: [master]
+    paths: ['backend/**'] # Only run when something inside the backend folder changes
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Push to HF
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "154746724+Adhikaxx88@users.noreply.github.com"
+          git config --global user.name "Adhika Gunawan"
+          git lfs install
+          git lfs pull
+          git push https://adhikaxx88:$HF_TOKEN@huggingface.co/spaces/adhikaxx88/phishing-detection-api $(git subtree split --prefix backend HEAD):main --force
