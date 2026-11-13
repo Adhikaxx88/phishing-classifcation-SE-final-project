@@ -1,2 +1,32 @@
-.vscode
-__pycache__
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Environment and secrets
+env/
+venv/
+.venv/
+anaconda3/
+.env
+.env.local
+google_key.json
+
+# Archives and spreadsheets
+*.xlsx
+*.zip
+*.tar.gz
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node and frontend build
+node_modules/
+dist/
+
+# Editors, logs and OS files
+.vscode/
+.idea/
+*.log
+.DS_Store

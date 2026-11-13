@@ -1,7 +1,0 @@
-src/
-
-# upload backend despite empty for first commit dir
-backend/credentials
-backend/src
-backend/models
-backend/data
