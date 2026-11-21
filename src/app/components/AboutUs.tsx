@@ -1,270 +1,267 @@
-import { Target, Zap, Shield, TrendingUp, Github as GithubIcon } from "lucide-react";
+import type { CSSProperties } from "react";
+import { Target, Zap, Shield, TrendingUp, Github as GithubIcon, ArrowUpRight } from "lucide-react";
 import { GlitchText } from "./GlitchText";
 import { NeonSeparator } from "./NeonSeparator";
 import { CollaboratorCard } from "./CollaboratorCard";
 
 const features = [
   {
-    icon: <Target size={20} color="#00ff9d" />,
+    icon: <Target size={20} color="#00ff9d" aria-hidden="true" />,
     title: "Accurate Predictions",
     description:
-      "Deep learning model trained on thousands of URLs delivers high-precision phishing detection.",
+      "A deep-learning model analyzes URL patterns to help identify potentially malicious links.",
   },
   {
-    icon: <Zap size={20} color="#00ff9d" />,
+    icon: <Zap size={20} color="#00ff9d" aria-hidden="true" />,
     title: "Fast Analysis",
     description:
-      "Real-time URL analysis completes in seconds, so you stay protected without slowing down.",
+      "Submit a URL and receive an analysis result in seconds, without a complicated workflow.",
   },
   {
-    icon: <Shield size={20} color="#00ff9d" />,
-    title: "Privacy First",
+    icon: <Shield size={20} color="#00ff9d" aria-hidden="true" />,
+    title: "Security Awareness",
     description:
-      "URLs are analyzed locally without storing your data. Your browsing stays private.",
+      "Understand the potential risks of a link before deciding whether to open it.",
   },
   {
-    icon: <TrendingUp size={20} color="#00ff9d" />,
+    icon: <TrendingUp size={20} color="#00ff9d" aria-hidden="true" />,
     title: "Continuous Improvement",
     description:
-      "The model is regularly updated with new phishing patterns to stay ahead of threats.",
+      "The project can be extended with updated data and models as phishing techniques evolve.",
   },
 ];
 
+const collaborators = [
+  {
+    name: "Adhikaxx88",
+    role: "Adhika Gunawan 2802438205",
+    description:
+      "Backend Developer and AI Engineer - Developed the core deep-learning model and backend infrastructure for phishing URL analysis.",
+  },
+  {
+    name: "Alvin",
+    role: "Alvin Wijaya 2802393062",
+    description:
+      "UI/UX Designer - Designed the interface and user experience for the phishing detection system.",
+  },
+  {
+    name: "Felix",
+    role: "Felix Yung 2802394462",
+    description:
+      "Frontend Developer - Implemented the responsive interface, focusing on usability and visual consistency.",
+  },
+  {
+    name: "Daniel",
+    role: "Daniel Sebastian Winata 2802392652",
+    description:
+      "UI/UX Designer - Contributed to the interface and user experience to make the application clear and intuitive.",
+  },
+  {
+    name: "Andrewyungg",
+    role: "Andrew Yung 2802394424",
+    description:
+      "Frontend Developer - Developed frontend components and interactions to help users navigate the phishing detection tool.",
+  },
+  {
+    name: "Tokesi",
+    role: "Tokesi Lukynawa 2802394525",
+    description:
+      "UI/UX Designer - Contributed to the visual design and user experience of the application.",
+  },
+];
+
+const panelStyle: CSSProperties = {
+  background: "rgba(8, 18, 18, 0.72)",
+  border: "1px solid rgba(0, 255, 157, 0.16)",
+  borderRadius: 16,
+  padding: 20,
+  minWidth: 0,
+};
+
 export function AboutUs() {
   return (
-    <div
+    <main
       style={{
         background: "#0a0f0f",
         minHeight: "100%",
-        padding: "32px 24px",
+        padding: "clamp(20px, 4vw, 40px) clamp(16px, 3vw, 28px)",
         fontFamily: "monospace",
+        color: "#e0e0e0",
       }}
     >
-      <div
-        className="max-w-6xl mx-auto"
-        style={{ maxWidth: 1152, margin: "0 auto" }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* ── Left Column ── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            {/* Header */}
-            <div>
-              <GlitchText
-                text="About Link Predictor"
-                style={{
-                  fontSize: 32,
-                  fontWeight: 800,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  display: "block",
-                  lineHeight: 1.2,
-                }}
-              />
-              <p
-                style={{
-                  color: "rgba(0,255,255,0.5)",
-                  fontSize: 11,
-                  letterSpacing: "0.25em",
-                  marginTop: 8,
-                  marginBottom: 16,
-                  textTransform: "uppercase",
-                }}
-              >
-                PHISHING DETECTION SYSTEM v3.0
-              </p>
+      <div style={{ maxWidth: 1152, margin: "0 auto", width: "100%" }}>
+        <header style={{ marginBottom: 28 }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              border: "1px solid rgba(0,255,157,0.25)",
+              borderRadius: 999,
+              padding: "6px 12px",
+              color: "#00ff9d",
+              fontSize: 10,
+              letterSpacing: "0.14em",
+              marginBottom: 16,
+            }}
+          >
+            <span aria-hidden="true" style={{ width: 7, height: 7, borderRadius: "50%", background: "#00ff9d", boxShadow: "0 0 8px #00ff9d" }} />
+            PHISHING DETECTION SYSTEM
+          </div>
+          <GlitchText
+            text="About PhishGuard"
+            style={{
+              display: "block",
+              fontSize: "clamp(25px, 4vw, 36px)",
+              fontWeight: 800,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              lineHeight: 1.2,
+            }}
+          />
+          <p
+            style={{
+              color: "rgba(0,255,255,0.58)",
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              marginTop: 10,
+              lineHeight: 1.7,
+            }}
+          >
+            A URL ANALYSIS TOOL DESIGNED TO HELP USERS RECOGNIZE PHISHING THREATS
+          </p>
+          <NeonSeparator />
+        </header>
 
-              {/* Decorative divider — two gradient lines + diamond */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  marginBottom: 4,
-                }}
-              >
-                <div
-                  style={{
-                    flex: 1,
-                    height: 1,
-                    background:
-                      "linear-gradient(90deg, transparent, #00ff9d, transparent)",
-                    boxShadow: "0 0 6px #00ff9d",
-                  }}
-                />
-                <div
-                  style={{
-                    width: 8,
-                    height: 8,
-                    background: "#00ff9d",
-                    transform: "rotate(45deg)",
-                    boxShadow: "0 0 8px #00ff9d",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: 1,
-                    height: 1,
-                    background:
-                      "linear-gradient(90deg, transparent, #00ff9d, transparent)",
-                    boxShadow: "0 0 6px #00ff9d",
-                  }}
-                />
-              </div>
+        <section
+          aria-label="Project overview and features"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+            gap: 20,
+            alignItems: "start",
+          }}
+        >
+          <div style={{ ...panelStyle, display: "flex", flexDirection: "column", gap: 18 }}>
+            <div>
+              <h2 style={{ color: "#00ff9d", fontSize: 13, letterSpacing: "0.16em", margin: "0 0 10px" }}>
+                PROJECT OVERVIEW
+              </h2>
+              <p style={{ color: "rgba(224,224,224,0.76)", fontSize: 13, lineHeight: 1.9, margin: 0 }}>
+                PhishGuard is a phishing detection project that analyzes submitted URLs
+                and uses a deep-learning model to identify links that may be malicious.
+                It aims to make checking suspicious links more accessible through a
+                straightforward interface.
+              </p>
             </div>
 
-            <NeonSeparator />
-
-            {/* Project description */}
-            <p
-              style={{
-                color: "rgba(224,224,224,0.7)",
-                fontSize: 14,
-                lineHeight: 1.8,
-                margin: 0,
-              }}
-            >
-              PhishGuard is an advanced phishing detection system powered by
-              deep learning. Using a fine-tuned sentence transformer model, it
-              analyzes URLs in real-time to identify malicious links with high
-              accuracy — protecting users before they click.
-            </p>
-
             <NeonSeparator label="OUR MISSION" />
-
-            {/* Mission */}
-            <p
-              style={{
-                color: "rgba(224,224,224,0.7)",
-                fontSize: 14,
-                lineHeight: 1.8,
-                margin: 0,
-              }}
-            >
-              Our mission is to make the internet safer by giving everyone
-              access to professional-grade phishing detection. We believe
-              security tools should be fast, accessible, and transparent — no
-              technical expertise required.
+            <p style={{ color: "rgba(224,224,224,0.76)", fontSize: 13, lineHeight: 1.9, margin: 0 }}>
+              Our mission is to help people make safer decisions online by providing
+              an approachable way to assess suspicious URLs and understand potential
+              phishing risks.
             </p>
 
             <NeonSeparator label="WHAT WE OFFER" />
-
-            {/* Feature grid 2x2 */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 16,
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
+                gap: 12,
               }}
             >
-              {features.map((f) => (
-                <div
-                  key={f.title}
-                  style={{ display: "flex", flexDirection: "column", gap: 8 }}
+              {features.map((feature) => (
+                <article
+                  key={feature.title}
+                  style={{
+                    background: "rgba(0,255,157,0.035)",
+                    border: "1px solid rgba(0,255,157,0.13)",
+                    borderRadius: 12,
+                    padding: 14,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 9,
+                    minWidth: 0,
+                  }}
                 >
                   <div
                     style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 8,
+                      width: 38,
+                      height: 38,
+                      borderRadius: 9,
                       background: "rgba(0,255,157,0.08)",
                       border: "1px solid rgba(0,255,157,0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      flexShrink: 0,
                     }}
                   >
-                    {f.icon}
+                    {feature.icon}
                   </div>
-                  <span
-                    style={{
-                      color: "#e0e0e0",
-                      fontSize: 13,
-                      fontWeight: 600,
-                    }}
-                  >
-                    {f.title}
-                  </span>
-                  <span
-                    style={{
-                      color: "rgba(224,224,224,0.5)",
-                      fontSize: 12,
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {f.description}
-                  </span>
-                </div>
+                  <h3 style={{ color: "#e0e0e0", fontSize: 12, margin: 0 }}>{feature.title}</h3>
+                  <p style={{ color: "rgba(224,224,224,0.58)", fontSize: 11, lineHeight: 1.7, margin: 0 }}>
+                    {feature.description}
+                  </p>
+                </article>
               ))}
             </div>
           </div>
 
-          {/* ── Right Column ── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            <NeonSeparator label="CORE COLLABORATORS" />
-
-            {/* Collaborator cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <CollaboratorCard
-                name="Adhikaxx88"
-                role="Adhika Gunawan 2802438205"
-                description="Backend Developer and AI Engineer - Developed the core deep learning model and backend infrastructure that powers our real-time phishing detection system, ensuring fast and accurate analysis of URLs."
-              />
-              <CollaboratorCard
-                name="Alvin"
-                role="Alvin Wijaya 2802393062"
-                description="UI/UX Designer - Designed the intuitive and visually striking interface for our phishing detection system, creating a user-friendly experience that makes online security accessible to everyone."
-              />
-              <CollaboratorCard
-                name="Felix"
-                role="Felix Yung 2802394462"
-                description="Frontend Developer - Implemented the responsive and engaging user interface for our phishing detection system, ensuring a seamless experience across devices while maintaining a strong focus on usability and aesthetics."
-              />
-              <CollaboratorCard
-                name="Daniel"
-                role="Daniel Sebastian Winata 2802392652"
-                description="UI/UX Designer - Crafted the user interface and experience for our phishing detection system, focusing on creating an intuitive and visually appealing design that empowers users to stay safe online with ease."
-              />
-              <CollaboratorCard
-                name="Andrewyungg"
-                role="Andrew Yung 2802394424"
-                description="Frontend Developer - Developed the dynamic and user-friendly interface for our phishing detection system, ensuring that users can easily navigate and utilize the tool to protect themselves from online threats."
-              />
-              <CollaboratorCard
-                name="Tokesi"
-                role="Tokesi Lukynawa 2802394525"
-                description="UI/UX Designer - Designed the user interface and experience for our phishing detection system, creating an intuitive and visually appealing design that empowers users to stay safe online with ease."
-              />
+          <div style={{ ...panelStyle, display: "flex", flexDirection: "column", gap: 16 }}>
+            <div>
+              <h2 style={{ color: "#00ff9d", fontSize: 13, letterSpacing: "0.16em", margin: "0 0 6px" }}>
+                THE TEAM
+              </h2>
+              <p style={{ color: "rgba(224,224,224,0.5)", fontSize: 11, lineHeight: 1.6, margin: 0 }}>
+                The people behind the PhishGuard project.
+              </p>
             </div>
-
-            {/* View GitHub button */}
-            <button
-              onClick={() => window.open("https://github.com/Adhikaxx88/hci-url-phising-classification", "_blank")}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 230px), 1fr))",
+                gap: 12,
+              }}
+            >
+              {collaborators.map((person) => (
+                <CollaboratorCard
+                  key={person.name}
+                  name={person.name}
+                  role={person.role}
+                  description={person.description}
+                />
+              ))}
+            </div>
+            <a
+              href="https://github.com/Adhikaxx88/hci-url-phising-classification"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 width: "100%",
-                padding: "12px",
+                boxSizing: "border-box",
+                padding: "12px 14px",
                 borderRadius: 10,
                 background: "rgba(0,255,157,0.07)",
                 border: "1px solid rgba(0,255,157,0.3)",
                 color: "#00ff9d",
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: 700,
-                letterSpacing: "0.15em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                cursor: "pointer",
+                textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 8,
+                gap: 9,
               }}
             >
-              <GithubIcon size={16} />
-              View GitHub
-            </button>
+              <GithubIcon size={16} aria-hidden="true" />
+              View Project on GitHub
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }
